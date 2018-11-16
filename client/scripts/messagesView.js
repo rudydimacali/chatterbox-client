@@ -6,6 +6,9 @@ var MessagesView = {
   },
 
   render: function() {
-  }
+  },
 
+  renderMessage: function() {
+    
+  }
 };
