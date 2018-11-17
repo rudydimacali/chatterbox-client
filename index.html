@@ -5,6 +5,7 @@
     <title>chatterbox</title>
     <link rel="stylesheet" href="client/styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/underscore/underscore.js"></script>
     <script>
@@ -24,6 +25,16 @@
   </head>
   <body>
     <div id="main">
+      <div id = "profileBox">
+        <img src="https://avatars3.githubusercontent.com/u/42647656?s=460&v=4" alt="Profile Pic" id = "profilePic"></img>
+        <div id = "profileUsername"></div>
+        <div id = "profileMessages">Tweets
+          <div id = "numProfileMessages"></div>
+        </div>
+        <div id = "profileFriends">Friends
+          <div id = "numProfileFriends">0</div>
+        </div>
+      </div>
       <h1>chatterbox</h1>
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">

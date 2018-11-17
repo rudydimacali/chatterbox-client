@@ -6,7 +6,7 @@ var App = {
 
   initialize: function() {
     App.username = window.location.search.substr(10);
-
+    $('#profileUsername').text(`@${App.username}`);
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
@@ -21,6 +21,7 @@ var App = {
       // examine the response from the server request:
       // console.log(data);
       Messages = data.results;
+      var numMessages = 0;
       _.each(Messages, function(message) {
         MessagesView.renderMessage(message);
         if (!Rooms.includes(message.roomname)) {
@@ -29,8 +30,12 @@ var App = {
           roomName.text = message.roomname;
           document.getElementById("roomSelector").add(roomName);
         }
+        if (message.username === App.username) {
+          numMessages++;
+        }
       });
-    callback();
+      $('#numProfileMessages').text(`${numMessages}`);
+      callback();
     });
   },
 
