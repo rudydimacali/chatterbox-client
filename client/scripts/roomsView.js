@@ -27,7 +27,6 @@ var RoomsView = {
   },
   
   handleChangeRoom: function() {
-    $('#chats').empty();
     App.fetch();
   }
 

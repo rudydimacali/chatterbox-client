@@ -8,11 +8,13 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
+    event.preventDefault();
     var user = App.username;
     var message = $("#message").val();
     var room = $("#roomSelector :selected").text();
     var messageObject = {username: user, text: message, roomname: room};
     Parse.create(messageObject);
+    MessagesView.renderNewMessage(messageObject);
   },
   
   setStatus: function(active) {

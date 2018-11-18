@@ -3,8 +3,9 @@ var Friends = {
   
   toggleStatus: function(friend) {
     this.friendList.push(friend);
-    $("#chats").load(location.href + " #chats>*", "");
+    App.fetch();
     $('#numProfileFriends').text(`${Friends.friendList.length}`);
+    
   }
 
 

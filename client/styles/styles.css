@@ -158,3 +158,8 @@ form input[type=text] {
     color: rgba(0, 255, 221, 1);
     font-weight: bold;
 }
+
+.friend {
+    color: rgb(215, 168, 255);
+    font-weight: bold;
+}

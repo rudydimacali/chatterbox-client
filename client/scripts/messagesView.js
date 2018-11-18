@@ -9,8 +9,11 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
-    if (message.username && message.text && message.roomname === $('#roomSelector').val()) {
-      var formatMessage = _.template(`<div class = 'messageBox'><div class = 'username ${message.username}'>@<%- username %></div><br><div class = 'message'><%- text %></div></div>`);
+    if (message.username && message.roomname === $('#roomSelector').val()) {
+      var formatMessage = _.template(`<div class = 'messageBox'><div class = 'username'>@<%- username %></div><br><div class = 'message'><%- text %></div></div>`);
+      if (Friends.friendList.includes(`@${message.username}`)) {
+        formatMessage = _.template(`<div class = 'messageBox'><div class = 'username friend'>@<%- username %></div><br><div class = 'message'><%- text %></div></div>`);
+      }
       var formattedMessage = formatMessage(message);
       this.$chats.append(formattedMessage);
       $('.username').off('click').on('click', function(event) {
@@ -19,8 +22,15 @@ var MessagesView = {
         if (!Friends.friendList.includes(user)) {
           Friends.toggleStatus(user);
         }
-        $(`.${className}`).css('color', 'rgb(0, 33, 132)').css('font-weight', 'bold');
       });
+    }
+  },
+
+  renderNewMessage: function(message) {
+    if (message.username && message.roomname === $('#roomSelector').val()) {
+      var formatMessage = _.template(`<div class = 'messageBox'><div class = 'username'>@<%- username %></div><br><div class = 'message'><%- text %></div></div>`);
+      var formattedMessage = formatMessage(message);
+      this.$chats.prepend(formattedMessage);
     }
   }
 

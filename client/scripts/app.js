@@ -14,15 +14,17 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
       // console.log(data);
-      Messages = data.results;
+      $('#chats').empty();
       var numMessages = 0;
-      _.each(Messages, function(message) {
+      _.each(data.results, function(message) {
+        Messages.messageArray.push(message);
         MessagesView.renderMessage(message);
         if (!Rooms.includes(message.roomname)) {
           Rooms.push(message.roomname);

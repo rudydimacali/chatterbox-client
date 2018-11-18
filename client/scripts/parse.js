@@ -14,6 +14,8 @@ var Parse = {
         console.error('chatterbox: Failed to post message.', error);
       }
     });
+    Messages.messageArray.push(message);
+    $('#numProfileMessages').text(`${numMessages}`);
   },
 
   readAll: function(successCB, errorCB = null) {
