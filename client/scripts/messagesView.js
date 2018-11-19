@@ -18,7 +18,6 @@ var MessagesView = {
       this.$chats.append(formattedMessage);
       $('.username').off('click').on('click', function(event) {
         var user = $(event.target).text();
-        var className = $(event.target).attr('class').split(' ')[1];
         if (!Friends.friendList.includes(user)) {
           Friends.toggleStatus(user);
         }

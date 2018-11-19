@@ -14,7 +14,7 @@ var FormView = {
     var room = $("#roomSelector :selected").text();
     var messageObject = {username: user, text: message, roomname: room};
     Parse.create(messageObject);
-    MessagesView.renderNewMessage(messageObject);
+    App.fetch();
   },
   
   setStatus: function(active) {

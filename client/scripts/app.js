@@ -23,6 +23,7 @@ var App = {
       // console.log(data);
       $('#chats').empty();
       var numMessages = 0;
+      Messages.messageArray = [];
       _.each(data.results, function(message) {
         Messages.messageArray.push(message);
         MessagesView.renderMessage(message);

@@ -15,6 +15,7 @@ var Parse = {
       }
     });
     Messages.messageArray.push(message);
+    App.fetch();
     $('#numProfileMessages').text(`${numMessages}`);
   },
 
